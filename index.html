@@ -36,6 +36,119 @@
 
     <div class="container" id="gameModeScreen" style="display: none;">
 
+    <h1>🎮 Játékmód</h1>
+
+    <p id="welcomeMessage"></p>
+
+    <h2>Válassz nehézséget!</h2>
+
+    <button onclick="selectDifficulty('Könnyű', 30)">
+        🟢 Könnyű
+        <br>
+        <small>30 kérdés</small>
+    </button>
+
+    <br><br>
+
+    <button onclick="selectDifficulty('Nehéz', 60)">
+        🟡 Nehéz
+        <br>
+        <small>60 kérdés</small>
+    </button>
+
+    <br><br>
+
+    <button onclick="selectDifficulty('Nagyon nehéz', 90)">
+        🔴 Nagyon nehéz
+        <br>
+        <small>90 kérdés</small>
+    </button>
+
+    <br><br>
+
+    <button onclick="selectDifficulty('Lehetetlen', 120)">
+        ☠️ Lehetetlen
+        <br>
+        <small>120 kérdés</small>
+    </button>
+
+</div>
+
+
+<div class="container" id="categoryScreen" style="display: none;">
+
+    <h1>📚 Kategóriák</h1>
+
+    <p id="difficultyMessage"></p>
+
+    <h2>Válassz kategóriát!</h2>
+
+    <button onclick="selectCategory('Magyarország')">
+        🇭🇺 Magyarország
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Történelem')">
+        📜 Történelem
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Földrajz')">
+        🌍 Földrajz
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Tudomány')">
+        🔬 Tudomány
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Sport')">
+        ⚽ Sport
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Film és sorozat')">
+        🎬 Film és sorozat
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Zene')">
+        🎵 Zene
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Videójátékok')">
+        🎮 Videójátékok
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Irodalom')">
+        📚 Irodalom
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Technológia')">
+        💻 Technológia
+    </button>
+
+    <br><br>
+
+    <button onclick="selectCategory('Általános műveltség')">
+        🧠 Általános műveltség
+    </button>
+
+</div>
+
         <h1>🎮 Játékmód</h1>
 
         <p id="welcomeMessage"></p>
@@ -116,17 +229,39 @@
         }
 
 
-        function selectDifficulty(difficulty, questionCount) {
+       let selectedDifficulty = "";
+let selectedQuestionCount = "";
+let selectedCategory = "";
 
-            alert(
-                "Kiválasztottad: " +
-                difficulty +
-                " – " +
-                questionCount +
-                " kérdés"
-            );
 
-        }
+function selectDifficulty(difficulty, questionCount) {
+
+    selectedDifficulty = difficulty;
+    selectedQuestionCount = questionCount;
+
+    document.getElementById("gameModeScreen").style.display =
+        "none";
+
+    document.getElementById("categoryScreen").style.display =
+        "block";
+
+    document.getElementById("difficultyMessage").textContent =
+        difficulty + " mód – " +
+        questionCount + " kérdés";
+}
+
+
+function selectCategory(category) {
+
+    selectedCategory = category;
+
+    alert(
+        "Kategória: " + selectedCategory +
+        "\nNehézség: " + selectedDifficulty +
+        "\nKérdések: " + selectedQuestionCount
+    );
+
+}
 
     </script>
 
