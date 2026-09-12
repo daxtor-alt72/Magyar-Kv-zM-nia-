@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -11,7 +12,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container" id="nameScreen">
 
         <h1>🧠 KvízAréna</h1>
 
@@ -33,17 +34,62 @@
     </div>
 
 
+    <div class="container" id="gameModeScreen" style="display: none;">
+
+        <h1>🎮 Játékmód</h1>
+
+        <p id="welcomeMessage"></p>
+
+        <h2>Válassz nehézséget!</h2>
+
+        <button onclick="selectDifficulty('Könnyű', 30)">
+            🟢 Könnyű
+            <br>
+            <small>30 kérdés</small>
+        </button>
+
+        <br><br>
+
+        <button onclick="selectDifficulty('Nehéz', 60)">
+            🟡 Nehéz
+            <br>
+            <small>60 kérdés</small>
+        </button>
+
+        <br><br>
+
+        <button onclick="selectDifficulty('Nagyon nehéz', 90)">
+            🔴 Nagyon nehéz
+            <br>
+            <small>90 kérdés</small>
+        </button>
+
+        <br><br>
+
+        <button onclick="selectDifficulty('Lehetetlen', 120)">
+            ☠️ Lehetetlen
+            <br>
+            <small>120 kérdés</small>
+        </button>
+
+    </div>
+
+
     <script>
+
+        let playerName = "";
+
 
         function startGame() {
 
-            const name = document
-                .getElementById("playerName")
-                .value
-                .trim();
+            const nameInput =
+                document.getElementById("playerName");
 
             const errorMessage =
                 document.getElementById("errorMessage");
+
+            const name =
+                nameInput.value.trim();
 
 
             if (name === "") {
@@ -55,7 +101,31 @@
             }
 
 
-            alert("Szia, " + name + "!");
+            playerName = name;
+
+
+            document.getElementById("nameScreen").style.display =
+                "none";
+
+            document.getElementById("gameModeScreen").style.display =
+                "block";
+
+
+            document.getElementById("welcomeMessage").textContent =
+                "Szia, " + playerName + "! Válaszd ki a játékmódot.";
+        }
+
+
+        function selectDifficulty(difficulty, questionCount) {
+
+            alert(
+                "Kiválasztottad: " +
+                difficulty +
+                " – " +
+                questionCount +
+                " kérdés"
+            );
+
         }
 
     </script>
