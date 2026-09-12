@@ -3,39 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>KvízAréna</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>🧠 KvízAréna</h1>
+    <div class="container">
 
-    <p>Üdvözöllek a KvízArénában!</p>
+        <h1>🧠 KvízAréna</h1>
 
-    <h2>Add meg a neved a játék kezdéséhez!</h2>
+        <p>Üdvözöllek a KvízArénában!</p>
 
-    <input 
-        type="text" 
-        id="playerName" 
-        placeholder="Írd be a neved..."
-    >
+        <h2>Add meg a neved!</h2>
 
-    <button onclick="startGame()">Tovább</button>
+        <input
+            type="text"
+            id="playerName"
+            placeholder="Írd be a neved..."
+            maxlength="30"
+        >
 
-    <p id="errorMessage"></p>
+        <button onclick="startGame()">Tovább</button>
+
+        <p id="errorMessage"></p>
+
+    </div>
+
 
     <script>
+
         function startGame() {
-            const name = document.getElementById("playerName").value.trim();
-            const errorMessage = document.getElementById("errorMessage");
+
+            const name = document
+                .getElementById("playerName")
+                .value
+                .trim();
+
+            const errorMessage =
+                document.getElementById("errorMessage");
+
 
             if (name === "") {
-                errorMessage.textContent = "❌ A név megadása kötelező!";
+
+                errorMessage.textContent =
+                    "❌ A név megadása kötelező!";
+
                 return;
             }
 
-            alert("Szia, " + name + "! A játék hamarosan kezdődik.");
+
+            alert("Szia, " + name + "!");
         }
+
     </script>
 
 </body>
